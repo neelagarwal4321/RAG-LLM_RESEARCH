@@ -1,0 +1,20 @@
+suite_name: "finance_demo"
+dataset: "usgc_demo"
+tasks:
+  - id: "t1"
+    type: "factual_qa"
+    query: "What is the 2024 Opex for Norco?"
+    expected: "USD 1.23B"
+    grading:
+      metric: ["exact_match", "f1", "sem_sim", "faithfulness"]
+      tolerance: "numeric:2%"
+      must_cite: true
+  - id: "t2"
+    type: "explain_variance"
+    query: "Why did margin improve in Q2 vs Q1?"
+    expected_points:
+      - "higher diesel cracks"
+      - "lower ethylene feedstock cost"
+    grading:
+      metric: ["pointwise_coverage", "faithfulness", "judge"]
+      must_cite: true

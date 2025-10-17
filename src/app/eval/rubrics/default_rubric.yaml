@@ -1,0 +1,32 @@
+categories:
+  relevance:
+    description: Degree to which the answer addresses the financial question.
+    scale: 0-5
+  faithfulness:
+    description: Alignment of claims with cited evidence.
+    scale: 0-5
+  completeness:
+    description: Coverage of all critical points required by the prompt.
+    scale: 0-5
+  citation_quality:
+    description: Correct use of citations and transparency of evidence.
+    scale: 0-5
+  numerical_correctness:
+    description: Accuracy of quantitative values and calculations.
+    scale: 0-5
+guidance:
+  must_reference_context: true
+  penalize_missing_citations: true
+  numeric_tolerance: "Respect task-specific tolerance if provided"
+response_format: |
+  {
+    "scores": {
+      "relevance": 0,
+      "faithfulness": 0,
+      "completeness": 0,
+      "citation_quality": 0,
+      "numerical_correctness": 0
+    },
+    "rationale": "One sentence justification",
+    "issues": []
+  }
